@@ -92,7 +92,9 @@ Because of this, it is necessary that this system is used with the correct custo
    - Enables real-time transfer between the browser extension and the note writing system
 
 ## Status
-Active project. Used as a personal workflow tool and is under active development
+Active / In Progress.
+
+Used as a personal workflow tool and is under active development
 
 ## Future Work
  - More command types
