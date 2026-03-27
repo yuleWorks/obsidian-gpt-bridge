@@ -26,20 +26,22 @@ Because of this, it is necessary that this system is used with the correct custo
 
 [Custom GPT] -> [ChatGPT UI] -> [Browser Extension] -> [WebSocket Server] -> [Obsidian Vault]
 
+This design enables real-time note generation while avoiding direct filesystem access from the browser.
+
 ### Components
 - **Custom GPT**
-  - Enforces output format (headers, tags, structure)
-  - Categorizes responses by content
-  - Ends formatted responses with end-of-message sentinel
+  - Enforces a strict output contract (headers, tags, structure) that is expected by the extension and server
+  - Categorizes responses to determine note location
+  - Appends an end-of-message sentinel to signal completion to the extension
 - **Browser Extension**
-  - Detects end-of-message sentinel
+  - Detects end-of-message sentinel to determine response completion
   - Extracts ChatGPT response
   - Sends structured data to server
 - **WebSocket Server (Python)**
   - Receives messages from extension
   - Parses and validates structured output
   - Writes markdown files to specified vault and subfolder
-  - Updates undefined terms list (`_undefined.md`) to remove newly defined terms and add newly undefined terms
+  - Maintains an undefined terms index (`_undefined.md`) by removing resolved terms and adding newly undefined terms
 
 ## Tech Stack
  - **Frontend:** Browser Extension (JavaScript)
