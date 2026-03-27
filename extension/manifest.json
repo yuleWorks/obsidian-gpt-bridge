@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "ObsidianGPT Bridge",
+  "version": "0.1.0",
+  "description": "Captures the latest ChatGPT assistant message and relays it to a local websocket bridge.",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://*.chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://*.chatgpt.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "ObsidianGPT Bridge"
+  }
+}
