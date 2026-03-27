@@ -103,5 +103,5 @@ Used as a personal workflow tool and is under active development
 
 ## Notes
 Developed with assistance from AI tools (OpenAI Codex).
-System architecture, design decisions, and overall structure were independently created. The codebase is understood and maintainable. 
+System architecture, design decisions, and overall structure were determined independently of AI tools. The codebase is understood and maintainable. 
 
